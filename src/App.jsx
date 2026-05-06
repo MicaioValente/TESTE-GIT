@@ -46,8 +46,8 @@ function App() {
                 path="/home2"
                 element={
                     <Home
-                        title="Home2"
-                        subtitle="Voce esta na tela Home2. Clique para voltar para Home."
+                        title="Home2 - Pagina Atualizada"
+                        subtitle="Bem-vindo a nova versao da Home2! Clique para voltar para Home."
                         to="/"
                         buttonText="Voltar para Home"
                     />
