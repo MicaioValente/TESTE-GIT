@@ -49,7 +49,7 @@ function App() {
                         title="Home2 - Pagina Atualizada"
                         subtitle="Bem-vindo a nova versao da Home2! Clique para voltar para Home."
                         to="/"
-                        buttonText="Voltar para Home"
+                        buttonText="Retornar para a Home Principal"
                     />
                 }
             />
