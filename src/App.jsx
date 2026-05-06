@@ -18,7 +18,7 @@ function Home({ title, subtitle, to, buttonText }) {
                         lixao
                     </Link>
                     <Link className="blue-button" to="/home2">
-                        Home2
+                        licao 2
                     </Link>
                 </div>
 
