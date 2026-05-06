@@ -1,46 +1,59 @@
-import { useState } from "react";
+import { Link, Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
 
-function App() {
-    const [screen, setScreen] = useState("home1");
-
-    const title = screen === "home1" ? "Home 1" : "Home 2";
+function Home({ title, subtitle, to, buttonText }) {
+    const { pathname } = useLocation();
 
     return (
         <main className="page">
             <section className="card">
                 <h1>{title}</h1>
-                <p>Escolha para qual tela deseja ir:</p>
+                <p>{subtitle}</p>
 
                 <div className="buttons">
-                    <button
-                        type="button"
-                        className="blue-button"
-                        onClick={() => setScreen("home1")}
-                    >
-                        Ir para Home 1
-                    </button>
-
-                    <button
-                        type="button"
-                        className="blue-button"
-                        onClick={() => setScreen("home2")}
-                    >
-                        Ir para Home 2
-                    </button>
+                    <Link className="blue-button active" to={to}>
+                        {buttonText}
+                    </Link>
+                    <Link className="blue-button" to="/">
+                        Home
+                    </Link>
+                    <Link className="blue-button" to="/home2">
+                        Home2
+                    </Link>
                 </div>
 
-                <button
-                    type="button"
-                    className="secondary-button"
-                    onClick={() =>
-                        setScreen(screen === "home1" ? "home2" : "home1")
-                    }
-                >
-                    Alternar Tela
-                </button>
+                <small className="route-path">Rota atual: {pathname}</small>
             </section>
         </main>
+    );
+}
+
+function App() {
+    return (
+        <Routes>
+            <Route
+                path="/"
+                element={
+                    <Home
+                        title="Home"
+                        subtitle="Voce esta na tela Home. Clique para ir para Home2."
+                        to="/home2"
+                        buttonText="Ir para Home2"
+                    />
+                }
+            />
+            <Route
+                path="/home2"
+                element={
+                    <Home
+                        title="Home2"
+                        subtitle="Voce esta na tela Home2. Clique para voltar para Home."
+                        to="/"
+                        buttonText="Voltar para Home"
+                    />
+                }
+            />
+        </Routes>
     );
 }
 
